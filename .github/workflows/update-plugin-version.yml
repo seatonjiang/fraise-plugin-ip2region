@@ -30,7 +30,9 @@ jobs:
           message: "feat: update of plugin version"
 
       - name: Update plugin versions
-        run: sed -i "s/Version: .*/Version: ${{ env.CURRENT_DATE }}/" fraise-plugin-ip2region.php
+        run:
+          |
+          sed -i "s/Version: .*/Version: ${{ env.CURRENT_DATE }}/" fraise-plugin-ip2region.php
 
       - name: Generate Changelog
         run:
