@@ -29,6 +29,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           message: "feat: update of plugin version"
 
+      - name: Update plugin versions
+        run:
+          |
+          composer install
+          composer update
+          sed -i "s/Version: .*/Version: ${{ env.CURRENT_DATE }}/" fraise-plugin-ip2region.php
+
       - name: Generate Changelog
         run:
           |
